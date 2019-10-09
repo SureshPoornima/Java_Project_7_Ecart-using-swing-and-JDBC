@@ -18,7 +18,7 @@ public class ConnectionManager {
 
 	public static void main(String[] args) throws ClassNotFoundException,SQLException{
 		Class.forName("com.mysql.jdbc.Driver");  
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sms","root","");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/registration","root","");  
 		
 		if (con != null)
 		{
@@ -28,6 +28,8 @@ public class ConnectionManager {
 		{
 			System.out.println("not Connected");
 		}
+		
+	
 		
 		 JFrame f=new JFrame("Welcome");  
 		    final JTextField tf1=new JTextField();  
@@ -45,14 +47,14 @@ public class ConnectionManager {
 		    final JPasswordField p2 = new JPasswordField();
 		    p2.setBounds(200,400, 150,20);
 		    
-		    final JTextField tf6=new JTextField();
+		   /* final JTextField tf6=new JTextField();
 		    tf6.setBounds(200,500, 150,20);
 		    final JTextField tf7=new JTextField();
 		    tf7.setBounds(200,550, 150,20);
 		    final JTextField tf8=new JTextField();
 		    tf8.setBounds(200,600, 150,20);
 		    final JTextField tf9=new JTextField();
-		    tf9.setBounds(200,650, 150,20);
+		    tf9.setBounds(200,650, 150,20);*/
 		    //String s1 = tf1.getText();
 		  
 		    JButton b=new JButton("Submit"); 
@@ -91,12 +93,12 @@ public class ConnectionManager {
 		    		String email = tf3.getText();
 		    		String phone = tf4.getText();
 		    		String user = tf5.getText();
-		    		String pass = tf6.getText();
-		    		String repass = tf7.getText();
+		    		String pass = p1.getText();
+		    		String repass = p2.getText();
 		          
 		            try {
 		            	  Statement statement = con.createStatement();
-						statement.executeUpdate("INSERT INTO register VALUES ('"+first+"','"+last+"','"+email+"','"+phone+"','"+user+"','"+pass+"','"+repass+"')");
+						statement.executeUpdate("INSERT INTO reg VALUES ('"+first+"','"+last+"','"+email+"','"+phone+"','"+user+"','"+pass+"','"+repass+"')");
 					} catch (SQLException e1) {
 						
 						e1.printStackTrace();
@@ -104,17 +106,12 @@ public class ConnectionManager {
 				        }  
 				    });
 		    
-		    f.add(b);f.add(tf1); f.add(tf2); f.add(tf3);f.add(tf4);f.add(tf5);f.add(p1);f.add(p2);f.add(tf6);
-		    f.add(tf7);f.add(tf8);f.add(tf9);
+		    f.add(b);f.add(tf1); f.add(tf2); f.add(tf3);f.add(tf4);f.add(tf5);f.add(p1);f.add(p2);
+		    
 		    f.setSize(500,800);  
 		    f.setLayout(null);  
 		    f.setVisible(true); 
-		
-        
-       
-
-
-
+	
 	}
 
 }
