@@ -99,6 +99,7 @@ public class ConnectionManager {
 		            try {
 		            	  Statement statement = con.createStatement();
 						statement.executeUpdate("INSERT INTO reg VALUES ('"+first+"','"+last+"','"+email+"','"+phone+"','"+user+"','"+pass+"','"+repass+"')");
+						
 					} catch (SQLException e1) {
 						
 						e1.printStackTrace();
